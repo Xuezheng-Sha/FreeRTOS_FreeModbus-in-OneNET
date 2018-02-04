@@ -1,0 +1,8 @@
+2017/12/17移植Freemodbus-RTU成功
+2017/12/17移植Freemodbus-RTU成功+OLED显示
+2017/12/17移植Freemodbus-RTU成功+OLED显示+按键
+2017/12/17移植Freemodbus-RTU成功+OLED显示+按键+LED
+2017/12/20移植Freemodbus-RTU成功+OLED显示+按键+LED+freeRTOS
+2018/01/14移植Freemodbus-RTU成功+OLED显示+按键+LED+freeRTOS+STM32内部Flash
+http://blog.csdn.net/sy_lixiang/article/details/47446983
+2018/02/1/生成了BIN文件
