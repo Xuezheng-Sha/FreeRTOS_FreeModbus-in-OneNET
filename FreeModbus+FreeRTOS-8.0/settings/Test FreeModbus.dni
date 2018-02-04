@@ -167,8 +167,7 @@ ProbeSetup0=2 1 1 2 0 0
 mode=0
 [Breakpoints2]
 Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\User}.85.5" 0 0 1 "" 0 "" 0
-Bp1=_ 1 "EMUL_CODE" "{$PROJ_DIR$\User\main.c}.62.7" 0 0 1 "" 0 "" 0
-Count=2
+Count=1
 [Aliases]
 A0=_ "G:\计划文档\32项目计划\32工程\NO.8 FreeModbus+FreeRTOS移植\CMSIS\system_stm32f10x.c" ""
 Count=1
