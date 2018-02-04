@@ -1,4 +1,4 @@
-基于FreeRTOS+Freemodbus_RTU 
+基于STM32F103+FreeRTOS+Freemodbus_RTU 
 
 代码包括OLCD_12864的菜单切换配合按键使用
 
