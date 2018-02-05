@@ -34,9 +34,9 @@ uint16_t usRegHoldingBuf[REG_HOLDING_NREGS] = {0X3139,0x5838,0x0001,0x0001,0x233
 uint16_t usRegHoldingStart = REG_HOLDING_START;
 
 //线圈状态
-uint8_t ucRegCoilsBuf[REG_COILS_SIZE / 8] = {0x01,0x02};
+uint8_t ucRegCoilsBuf[REG_COILS_SIZE / 8] = {0x01,0x01};
 //开关输入状态
-uint8_t ucRegDiscreteBuf[REG_DISCRETE_SIZE / 8] = {0x01,0x02};
+uint8_t ucRegDiscreteBuf[REG_DISCRETE_SIZE / 8] = {0x01,0x01};
 /**
   * @brief  输入寄存器处理函数，输入寄存器可读，但不可写。
   * @param  pucRegBuffer  返回数据指针

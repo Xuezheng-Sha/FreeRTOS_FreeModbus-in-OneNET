@@ -76,7 +76,10 @@ static void vTaskLED(void *pvParameters)
 {
     while(1)
     {
+         LED0_ON();
        	/* LED…¡À∏ */
+         vTaskDelay(100);
+         LED0_OFF();
     }
 }
 
