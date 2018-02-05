@@ -7,3 +7,23 @@
 2018/01/14/IAR生成BIN文件-http://blog.csdn.net/sy_lixiang/article/details/47446983
 2018/02/01/生成了BIN文件
 2018/02/04/备份到git +github
+/*code is far away from bug with the animal protecting 
+ *  ┏┓　　　┏┓ 
+ *┏┛┻━━━┛┻┓ 
+ *┃　　　　　　　┃ 　 
+ *┃　　　━　　　┃ 
+ *┃　┳┛　┗┳　┃ 
+ *┃　　　　　　　┃ 
+ *┃　　　┻　　　┃ 
+ *┃　　　　　　　┃ 
+ *┗━┓　　　┏━┛ 
+ *　　┃　　　┃神兽保佑 
+ *　　┃　　　┃代码无BUG！ 
+ *　　┃　　　┗━━━┓ 
+ *　　┃　　　　　　　┣┓ 
+ *　　┃　　　　　　　┏┛ 
+ *　　┗┓┓┏━┳┓┏┛ 
+ *　　　┃┫┫　┃┫┫ 
+ *　　　┗┻┛　┗┻┛  
+ *　　　 
+ */ 
