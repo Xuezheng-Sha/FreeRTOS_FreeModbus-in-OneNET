@@ -1,0 +1,17 @@
+头文件路径
+$PROJ_DIR$\CMSIS
+$PROJ_DIR$\StdPeriph_Driver\inc
+$PROJ_DIR$\User
+
+FreeMobus路径
+$PROJ_DIR$\FreeModbus\modbus\include
+$PROJ_DIR$\FreeModbus\modbus\rtu
+$PROJ_DIR$\FreeModbus\port
+
+
+宏定义
+USE_STDPERIPH_DRIVER
+STM32F10X_MD
+
+Link文件路径
+$PROJ_DIR$\Linker\stm32f10x_flash
