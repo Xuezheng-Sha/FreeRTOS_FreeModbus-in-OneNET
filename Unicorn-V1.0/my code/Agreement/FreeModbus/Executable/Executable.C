@@ -230,25 +230,6 @@ eMBRegDiscreteCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNDiscrete )
 }
 
 /**
-  * @brief  LED初始化
-  * @param  None
-  * @retval None
-  */
-void LED_Config(void)
-{
-  //定义一个GPIO结构体
-  GPIO_InitTypeDef  GPIO_InitStructure; 
-
-  //初始化GPIOB时钟
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB ,ENABLE);
-  //GPIOB
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 ; 
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-  GPIO_Init(GPIOB, &GPIO_InitStructure); 
-}
-
-/**
   * @brief  LED循环检测
   * @param  None
   * @retval None
@@ -257,10 +238,10 @@ void LED_Poll(void)
 {
   uint8_t LED_Status = ucRegCoilsBuf[0];
   
-  if(LED_Status & 0x01) {LED0_ON();} else {LED0_OFF();}
-  if(LED_Status & 0x02) {LED1_ON();} else {LED1_OFF();}
-  if(LED_Status & 0x04) {LED3_ON();} else {LED3_OFF();}
-  if(LED_Status & 0x08) {LED4_ON();} else {LED4_OFF();}
+//  if(LED_Status & 0x01) {LED0_ON();} else {LED0_OFF();}
+//  if(LED_Status & 0x02) {LED1_ON();} else {LED1_OFF();}
+//  if(LED_Status & 0x04) {LED2_ON();} else {LED2_OFF();}
+//  if(LED_Status & 0x08) {LED3_ON();} else {LED3_OFF();}
 }
 
 /**

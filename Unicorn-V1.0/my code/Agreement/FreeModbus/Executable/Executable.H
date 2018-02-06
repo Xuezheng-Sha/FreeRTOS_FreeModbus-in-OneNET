@@ -1,19 +1,6 @@
 #ifndef __Executable_H
 #define __Executable_H
 /* Private macro -------------------------------------------------------------*/
-//LED控制
-//#define LED1_OFF()          GPIO_SetBits(GPIOB,GPIO_Pin_9)
-//#define LED1_ON()           GPIO_ResetBits(GPIOB,GPIO_Pin_9)
-//
-//#define LED2_OFF()          GPIO_SetBits(GPIOB,GPIO_Pin_8)
-//#define LED2_ON()           GPIO_ResetBits(GPIOB,GPIO_Pin_8)
-
-#define LED3_OFF()          GPIO_SetBits(GPIOB,GPIO_Pin_7)
-#define LED3_ON()           GPIO_ResetBits(GPIOB,GPIO_Pin_7)
-
-#define LED4_OFF()          GPIO_SetBits(GPIOB,GPIO_Pin_6)
-#define LED4_ON()           GPIO_ResetBits(GPIOB,GPIO_Pin_6)
-
 //拨码开关控制
 #define BUTTON1_READ()      GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_8)
 #define BUTTON2_READ()      GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_9)

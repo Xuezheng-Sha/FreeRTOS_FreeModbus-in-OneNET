@@ -9,7 +9,7 @@ ActionState=1
 Enabled=0
 ShowSource=1
 [DebugChecksum]
-Checksum=-693157056
+Checksum=-2011303832
 [DisAssemblyWindow]
 NumStates=_ 1
 State 1=_ 1
@@ -170,5 +170,6 @@ Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\User}.85.5" 0 0 1 "" 0 "" 0
 Count=1
 [Aliases]
 A0=_ "G:\计划文档\32项目计划\32工程\NO.8 FreeModbus+FreeRTOS移植\CMSIS\system_stm32f10x.c" ""
-Count=1
+A1=_ "G:\计划文档\32项目计划\32工程\NO.8 FreeModbus+FreeRTOS移植\my code\Agreement\FreeModbus\modbus\functions\mbfunccoils.c" ""
+Count=2
 SuppressDialog=1

@@ -1,28 +1,38 @@
 #ifndef __LED_H
 #define __LED_H	 
-#include "stm32f10x_rcc.h"
-//////////////////////////////////////////////////////////////////////////////////	 
-//本程序只供学习使用，未经作者许可，不得用于其它任何用途
-//ALIENTEK战舰STM32开发板
-//LED驱动代码	   
-//正点原子@ALIENTEK
-//技术论坛:www.openedv.com
-//修改日期:2012/9/2
-//版本：V1.0
-//版权所有，盗版必究。
-//Copyright(C) 广州市星翼电子科技有限公司 2009-2019
-//All rights reserved									  
+#include "stm32f10x_rcc.h"			  
 ////////////////////////////////////////////////////////////////////////////////// 
-#define LED0 PAout(8)	// PA8
-#define LED1 PDout(2)	// PD2	
 
-#define LED0_ON()	GPIO_SetBits(GPIOA,GPIO_Pin_8)
-#define LED0_OFF()	GPIO_ResetBits(GPIOA,GPIO_Pin_8)
+typedef struct
+{
 
-#define LED1_ON()	GPIO_SetBits(GPIOD,GPIO_Pin_2)
-#define LED1_OFF()	GPIO_ResetBits(GPIOD,GPIO_Pin_2)
+	_Bool Led1Sta;
+	_Bool Led2Sta;
+	_Bool Led3Sta;
+	_Bool Led4Sta;
+
+} LED_STATUS;
+
+extern LED_STATUS led_status;
+
+
+typedef enum
+{
+
+	LED_OFF = 0,
+	LED_ON
+
+} LED_ENUM;
 
 void LED_Init(void);//初始化
 
-		 				    
+void Led1_Set(LED_ENUM status);
+
+void Led2_Set(LED_ENUM status);
+
+void Led3_Set(LED_ENUM status);
+
+void Led4_Set(LED_ENUM status);		
+
+
 #endif

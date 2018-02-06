@@ -15,21 +15,108 @@
 
 //初始化PB5和PE5为输出口.并使能这两个口的时钟		    
 //LED IO初始化
+LED_STATUS led_status;
+
 void LED_Init(void)
 {
  
  GPIO_InitTypeDef  GPIO_InitStructure;
  	
- RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA|RCC_APB2Periph_GPIOD|RCC_APB2Periph_GPIOC, ENABLE);	 //使能PA,PD端口时钟
-	
- GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;				 //LED0-->PA.8 端口配置
+ RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA|RCC_APB2Periph_GPIOC, ENABLE);	 //使能PA,PD端口时钟
+ 
  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+ GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 |GPIO_Pin_10; //LED1-->PD.7/8/10 端口配置, 推挽输出	
  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
- GPIO_Init(GPIOA, &GPIO_InitStructure);					 //根据设定参数初始化GPIOA.8
- GPIO_SetBits(GPIOA,GPIO_Pin_8);						 //PA.8 输出高
-
- GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;	    		 //LED1-->PD.2 端口配置, 推挽输出
- GPIO_Init(GPIOD, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
- GPIO_SetBits(GPIOD,GPIO_Pin_2); 						 //PD.2 输出高 
+ GPIO_Init(GPIOC, &GPIO_InitStructure);	 
+ 
+ GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;				 //LED0-->PA.2 端口配置  				
+ GPIO_Init(GPIOA, &GPIO_InitStructure);	
+    Led1_Set(LED_OFF);
+    Led2_Set(LED_OFF);
+    Led3_Set(LED_OFF);
+    Led4_Set(LED_OFF);
 }
  
+
+/*
+************************************************************
+*	函数名称：	Led1_Set
+*
+*	函数功能：	LED1控制
+*
+*	入口参数：	status：LED_ON-开灯	LED_OFF-关灯
+*
+*	返回参数：	无
+*
+*	说明：		
+************************************************************
+*/
+void Led1_Set(LED_ENUM status)
+{
+
+	GPIO_WriteBit(GPIOC, GPIO_Pin_7, status != LED_ON ? Bit_SET : Bit_RESET);	//status如果不等于LED_ON则返回Bit_SET，否则返回Bit_RESET。下同
+	led_status.Led1Sta = status;
+
+}
+
+/*
+************************************************************
+*	函数名称：	Led2_Set
+*
+*	函数功能：	LED2控制
+*
+*	入口参数：	status：LED_ON-开灯	LED_OFF-关灯
+*
+*	返回参数：	无
+*
+*	说明：		
+************************************************************
+*/
+void Led2_Set(LED_ENUM status)
+{
+
+	GPIO_WriteBit(GPIOC, GPIO_Pin_8, status != LED_ON ? Bit_SET : Bit_RESET);
+	led_status.Led2Sta = status;
+
+}
+
+/*
+************************************************************
+*	函数名称：	Led3_Set
+*
+*	函数功能：	LED3控制
+*
+*	入口参数：	status：LED_ON-开灯	LED_OFF-关灯
+*
+*	返回参数：	无
+*
+*	说明：		
+************************************************************
+*/
+void Led3_Set(LED_ENUM status)
+{
+
+	GPIO_WriteBit(GPIOA, GPIO_Pin_12, status != LED_ON ? Bit_SET : Bit_RESET);
+	led_status.Led3Sta = status;
+
+}
+
+/*
+************************************************************
+*	函数名称：	Led4_Set
+*
+*	函数功能：	LED4控制
+*
+*	入口参数：	status：LED_ON-开灯	LED_OFF-关灯
+*
+*	返回参数：	无
+*
+*	说明：		
+************************************************************
+*/
+void Led4_Set(LED_ENUM status)
+{
+
+	GPIO_WriteBit(GPIOC, GPIO_Pin_10, status != LED_ON ? Bit_SET : Bit_RESET);
+	led_status.Led4Sta = status;
+}
