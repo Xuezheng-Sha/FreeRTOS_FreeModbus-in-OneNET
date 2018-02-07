@@ -38,6 +38,8 @@ E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\System task
 -I
 E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\STMFLASH
 -I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Beep
+-I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
@@ -79,6 +81,8 @@ E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\Exe
 E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\System task
 -I
 E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\STMFLASH
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Beep
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -DUSE_STDPERIPH_DRIVER=1

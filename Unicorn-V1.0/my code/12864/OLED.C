@@ -2067,12 +2067,22 @@ void OLED_function(u8  num)
 	 break;
 	 case 5:
 	 {
-            
+             LCD_CLS();
+             OLED_P6x8Str(0,4,"Beep !"); 
+             Beep_Set(BEEP_ON);
+             vTaskDelay(500);
+             Beep_Set(BEEP_OFF);           //打开蜂鸣器,关闭蜂鸣器
 	 }
 	 break;
 	 case 6:
 	 {
-
+            Led1_Set(LED_ON);vTaskDelay(500);Led1_Set(LED_OFF);		//点亮LED4，并延时500ms，然后熄灭LED4
+             
+            Led2_Set(LED_ON);vTaskDelay(500);Led2_Set(LED_OFF);		//点亮LED5，并延时500ms，然后熄灭LED5
+                    
+            Led3_Set(LED_ON);vTaskDelay(500);Led3_Set(LED_OFF);		//点亮LED6，并延时500ms，然后熄灭LED6
+                    
+            Led4_Set(LED_ON);vTaskDelay(500);Led4_Set(LED_OFF);		//点亮LED7，并延时500ms，然后熄灭LED7
 	 }
 	 break;
 	 case 7:

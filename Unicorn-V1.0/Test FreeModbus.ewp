@@ -329,6 +329,7 @@
           <state>$PROJ_DIR$\my code\Agreement\FreeModbus\Executable</state>
           <state>$PROJ_DIR$\my code\system\System task</state>
           <state>$PROJ_DIR$\my code\STMFLASH</state>
+          <state>$PROJ_DIR$\my code\Beep</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -2118,6 +2119,9 @@
   </group>
   <group>
     <name>my code</name>
+    <file>
+      <name>$PROJ_DIR$\my code\Beep\Beep.C</name>
+    </file>
     <file>
       <name>$PROJ_DIR$\my code\delay\delay.c</name>
     </file>

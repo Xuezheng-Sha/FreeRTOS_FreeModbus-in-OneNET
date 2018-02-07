@@ -36,6 +36,7 @@
 #include "key.h"
 #include "delay.h"
 #include "stmflash.h"
+#include "beep.h"
 #include "mb.h"
 #include "mbutils.h"
 #include "led.h"

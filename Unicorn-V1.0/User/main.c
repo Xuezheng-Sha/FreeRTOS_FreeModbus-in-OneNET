@@ -21,6 +21,7 @@ int main(void)
           LCD_Init();
           KEY_Init();
           LED_Init();
+          Beep_Init();
          //__set_PRIMASK(1); 
         //初始化 RTU模式 从机地址为1 USART1 9600 无校验
           eMBInit(MB_RTU, 0x01, 0x01, 9600, MB_PAR_NONE);
@@ -78,13 +79,7 @@ static void vTaskLED(void *pvParameters)
     /* LED闪烁 */
     while(1)
     {
-        Led1_Set(LED_ON);vTaskDelay(500);Led1_Set(LED_OFF);		//点亮LED4，并延时500ms，然后熄灭LED4
-		
-	Led2_Set(LED_ON);vTaskDelay(500);Led2_Set(LED_OFF);		//点亮LED5，并延时500ms，然后熄灭LED5
-		
-	Led3_Set(LED_ON);vTaskDelay(500);Led3_Set(LED_OFF);		//点亮LED6，并延时500ms，然后熄灭LED6
-		
-	Led4_Set(LED_ON);vTaskDelay(500);Led4_Set(LED_OFF);		//点亮LED7，并延时500ms，然后熄灭LED7
+
     }
 }
 
@@ -100,8 +95,7 @@ static void vTaskLED(void *pvParameters)
 static void vTaskMsgPro(void *pvParameters)
 {
     while(1)
-    {
-        
+    { 
         eMBPoll(); 
         vTaskDelay(300);
     }
