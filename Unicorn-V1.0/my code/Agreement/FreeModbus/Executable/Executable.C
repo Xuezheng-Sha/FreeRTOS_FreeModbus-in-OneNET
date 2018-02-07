@@ -34,9 +34,9 @@ uint16_t usRegHoldingBuf[REG_HOLDING_NREGS] = {0X3139,0x5838,0x0001,0x0001,0x233
 uint16_t usRegHoldingStart = REG_HOLDING_START;
 
 //线圈状态
-uint8_t ucRegCoilsBuf[REG_COILS_SIZE / 8] = {0x01,0x01};
+uint8_t ucRegCoilsBuf[REG_COILS_SIZE] = {0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01};
 //开关输入状态
-uint8_t ucRegDiscreteBuf[REG_DISCRETE_SIZE / 8] = {0x01,0x01};
+uint8_t ucRegDiscreteBuf[REG_DISCRETE_SIZE] = {0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01};
 /**
   * @brief  输入寄存器处理函数，输入寄存器可读，但不可写。
   * @param  pucRegBuffer  返回数据指针
@@ -236,12 +236,12 @@ eMBRegDiscreteCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNDiscrete )
   */
 void LED_Poll(void)
 {
-  uint8_t LED_Status = ucRegCoilsBuf[0];
+
+  if(ucRegCoilsBuf[0] & 0x01) {Led1_Set(LED_ON);} else {Led1_Set(LED_OFF);}
+  if(ucRegCoilsBuf[1] & 0x01) {Led2_Set(LED_ON);} else {Led2_Set(LED_OFF);}
+  if(ucRegCoilsBuf[2] & 0x01) {Led3_Set(LED_ON);} else {Led3_Set(LED_OFF);}
+  if(ucRegCoilsBuf[3] & 0x01) {Led4_Set(LED_ON);} else {Led4_Set(LED_OFF);}
   
-//  if(LED_Status & 0x01) {LED0_ON();} else {LED0_OFF();}
-//  if(LED_Status & 0x02) {LED1_ON();} else {LED1_OFF();}
-//  if(LED_Status & 0x04) {LED2_ON();} else {LED2_OFF();}
-//  if(LED_Status & 0x08) {LED3_ON();} else {LED3_OFF();}
 }
 
 /**

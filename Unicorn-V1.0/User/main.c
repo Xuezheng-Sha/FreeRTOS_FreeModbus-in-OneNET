@@ -115,7 +115,7 @@ static void vTaskStart(void *pvParameters)
     while(1)
     {
         KEY_red();
-        //LED_Poll();
+        LED_Poll();
         vTaskDelay(400);
     }
 }
