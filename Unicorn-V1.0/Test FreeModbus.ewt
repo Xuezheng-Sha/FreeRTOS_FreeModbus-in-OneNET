@@ -2476,6 +2476,9 @@
   <group>
     <name>my code</name>
     <file>
+      <name>$PROJ_DIR$\my code\ADC\ADC.C</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\my code\Beep\Beep.C</name>
     </file>
     <file>

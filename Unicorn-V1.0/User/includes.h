@@ -21,6 +21,9 @@
 * ±ê×¼¿â
 *********************************************************************************************************
 */
+#define bool char
+#define true 1
+#define false 0
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>

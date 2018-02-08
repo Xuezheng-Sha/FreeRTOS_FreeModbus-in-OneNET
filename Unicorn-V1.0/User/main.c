@@ -37,7 +37,7 @@ int main(void)
         heap空间不足造成创建失败，此要加大FreeRTOSConfig.h文件中定义的heap大小：
         #define configTOTAL_HEAP_SIZE	      ( ( size_t ) ( 17 * 1024 ) )
         */
-                while(1);
+          while(1);
 }
 /*
 *********************************************************************************************************
@@ -49,16 +49,45 @@ int main(void)
 *********************************************************************************************************
 */
 //要写入到STM32 FLASH的字符串数组
-#define FLASH_SAVE_ADDR  0X08020000   
-#define SIZE sizeof(FreeSize)	 	//数组长度
-u8 FreeSize[]={"STM32 ModbusTEST"};  
-u8 datatemp[SIZE];   	
+//#define FLASH_SAVE_ADDR  0X08020000   
+//#define SIZE sizeof(FreeSize)	 	//数组长度
+//u8 FreeSize[]={"STM32 ModbusTEST"};  
+//u8 datatemp[SIZE];   
+bool GO_1=false;
+extern u8 menu;
+bool flag_LED=false,flag_Beep=false;
 //设置FLASH 保存地址(必须为偶数，且其值要大于本代码所占用FLASH的大小+0X08000000)
 static void vTaskFLASH(void *pvParameters)
 {
-   
     while(1)
     {
+         KEY_red();
+        if(GO_1==true)	
+        {
+          OLED_function(menu);
+	}
+        if(flag_LED==true)
+        {
+           LCD_CLS();
+           OLED_P6x8Str(0,4,"LED !"); 
+           Led1_Set(LED_ON);vTaskDelay(500);Led1_Set(LED_OFF);		//点亮LED4，并延时500ms，然后熄灭LED4
+               
+           Led2_Set(LED_ON);vTaskDelay(500);Led2_Set(LED_OFF);		//点亮LED5，并延时500ms，然后熄灭LED5
+                      
+           Led3_Set(LED_ON);vTaskDelay(500);Led3_Set(LED_OFF);		//点亮LED6，并延时500ms，然后熄灭LED6
+                      
+           Led4_Set(LED_ON);vTaskDelay(500);Led4_Set(LED_OFF);		//点亮LED7，并延时500ms，然后熄灭LED7
+           flag_LED=false;
+        }
+        if(flag_Beep==true)
+        {
+             LCD_CLS();
+             OLED_P6x8Str(0,4,"Beep !"); 
+             Beep_Set(BEEP_ON);
+             vTaskDelay(500);
+             Beep_Set(BEEP_OFF);           //打开蜂鸣器,关闭蜂鸣器
+             flag_Beep=false;
+       }
        //STMFLASH_Read(FLASH_SAVE_ADDR,(u16*)datatemp,SIZE);
       //STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)FreeSize,SIZE);
       vTaskDelay(100);
@@ -79,7 +108,7 @@ static void vTaskLED(void *pvParameters)
     /* LED闪烁 */
     while(1)
     {
-
+      vTaskDelay(100);
     }
 }
 
@@ -114,7 +143,6 @@ static void vTaskStart(void *pvParameters)
 {
     while(1)
     {
-        KEY_red();
         LED_Poll();
         vTaskDelay(400);
     }

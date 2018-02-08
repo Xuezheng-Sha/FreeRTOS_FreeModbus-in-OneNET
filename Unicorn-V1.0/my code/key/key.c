@@ -128,11 +128,13 @@ unsigned char Keyboard(void)
 ************************************************************
 */
 u8 menu=0,menu1=0;
+extern bool GO_1;
 void KEY_red(void)
 {
  switch(Keyboard())
   {
   case KEY0DOWN:{
+       GO_1=false;
       if(menu>0)
       {
 	OLED_Interface(menu);
@@ -145,6 +147,7 @@ void KEY_red(void)
       menu-=1;
       }break;
    case KEY1DOWN:{
+            GO_1=false;
             menu+=1;
             if(menu>10)
          {
@@ -154,13 +157,13 @@ void KEY_red(void)
                else
               OLED_Interface(menu);
         }break;
-    case KEY2DOWN:{                              
-               OLED_function(menu); //menu		
-	}break;
+    case KEY2DOWN:{
+                 GO_1=true;
+	      }break;
 case KEY3DOWN:{
-                         
+                    
      }break;			
-   default:
+  default:
    break;	
  }
 }

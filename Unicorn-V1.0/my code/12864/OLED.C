@@ -2031,18 +2031,25 @@ void OLED_Interface(u8   num)
    return;
   }
 }
-extern u8 datatemp[];
+/**************************************************************************/
+/**************************任务区******************************************/
+/**************************************************************************/
+extern u8 datatemp[]; 
+extern bool flag_LED,flag_Beep;
+extern u16 adcx;
+unsigned char SlaveAddress=0;//显示从机地址
+extern uint16_t usRegHoldingBuf[];//寄存器数据
+u8 data[128];
 //函数界面
 void OLED_function(u8  num)
-{
-	
-//	float temp;
+{	
+//float temp;
    switch(num)
  {
    case 0:
 	 {
-      VIEW_DCXH_dongtai();
-   }
+           VIEW_DCXH_dongtai();
+        }
    break;
    case 1:
 	 {
@@ -2051,7 +2058,11 @@ void OLED_function(u8  num)
 	 break;
 	 case 2:
 	 {
-          VIEW_CCD_dongtai(0);
+             for(int i=0;i<128;i++)
+            {
+              data[i]= 255;
+            }
+             VIEW_CCD_dongtai(data);
 	 }
 	 break;
 	 case 3:
@@ -2062,32 +2073,22 @@ void OLED_function(u8  num)
 	 case 4:
 	 {
            LCD_CLS();
-           OLED_P6x8Str(15,0,datatemp);//显示数据
+           OLED_P6x8Str(15,0,"AD");//显示数据
 	 }
 	 break;
 	 case 5:
 	 {
-             LCD_CLS();
-             OLED_P6x8Str(0,4,"Beep !"); 
-             Beep_Set(BEEP_ON);
-             vTaskDelay(500);
-             Beep_Set(BEEP_OFF);           //打开蜂鸣器,关闭蜂鸣器
+            flag_Beep=true;
 	 }
 	 break;
 	 case 6:
 	 {
-            Led1_Set(LED_ON);vTaskDelay(500);Led1_Set(LED_OFF);		//点亮LED4，并延时500ms，然后熄灭LED4
-             
-            Led2_Set(LED_ON);vTaskDelay(500);Led2_Set(LED_OFF);		//点亮LED5，并延时500ms，然后熄灭LED5
-                    
-            Led3_Set(LED_ON);vTaskDelay(500);Led3_Set(LED_OFF);		//点亮LED6，并延时500ms，然后熄灭LED6
-                    
-            Led4_Set(LED_ON);vTaskDelay(500);Led4_Set(LED_OFF);		//点亮LED7，并延时500ms，然后熄灭LED7
+            flag_LED=true;
 	 }
 	 break;
 	 case 7:
 	 {
-
+           
 	 }
 	 break;
 	 case 8:
@@ -2100,8 +2101,8 @@ void OLED_function(u8  num)
 
 	 }
 	 break;
-	 default:
-   return;
+     default:
+   break;
   }
 
 
@@ -2165,9 +2166,6 @@ void VIEW_DCXH_dongtai(void)
 *  修改时间：2014-5-12
 *  备    注：
 ***********************************************************************************/
-extern u16 adcx;
-unsigned char SlaveAddress=0;//显示从机地址
-extern uint16_t usRegHoldingBuf[];//寄存器数据
 void parameter(void)
 {    
      LCD_CLS();
