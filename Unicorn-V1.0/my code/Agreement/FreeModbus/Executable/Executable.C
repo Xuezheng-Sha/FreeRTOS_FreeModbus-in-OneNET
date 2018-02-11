@@ -227,21 +227,20 @@ eMBRegDiscreteCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNDiscrete )
     eStatus = MB_ENOREG;
   }
   return eStatus;
-}
-
+}  
 /**
   * @brief  LEDÑ­»·¼ì²â
   * @param  None
   * @retval None
-  */
+  */    
+u16 ret; 
+
 void LED_Poll(void)
 {
-
 //  if(ucRegCoilsBuf[0] == 0x01) {Led1_Set(LED_ON);} else {Led1_Set(LED_OFF);}
 //  if(ucRegCoilsBuf[1] == 0x01) {Led2_Set(LED_ON);} else {Led2_Set(LED_OFF);}
 //  if(ucRegCoilsBuf[2] == 0x01) {Led3_Set(LED_ON);} else {Led3_Set(LED_OFF);}
 //  if(ucRegCoilsBuf[3] == 0x01) {Led4_Set(LED_ON);} else {Led4_Set(LED_OFF);}
-  
 }
 
 /**

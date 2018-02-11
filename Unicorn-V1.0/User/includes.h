@@ -34,6 +34,7 @@
 *********************************************************************************************************
 */
 #include "stm32f10x.h"
+#include "stm32f10x_adc.h"
 #include <stdio.h>
 #include "OLED.h"
 #include "key.h"
@@ -45,6 +46,8 @@
 #include "led.h"
 #include "Executable.h"
 #include "Systemtask.h"
+#include "adc.h"
+#include "Unicorn_drive.h"
 /*
 *********************************************************************************************************
 * OS

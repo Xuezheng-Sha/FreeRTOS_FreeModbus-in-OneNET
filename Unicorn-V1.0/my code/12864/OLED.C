@@ -505,7 +505,7 @@ void LCD_PutPixel(u8 x,u8 y)
 {
 	u8 data1;  //data1当前点的数据 
 	 
-  LCD_Set_Pos(x,y); 
+        LCD_Set_Pos(x,y); 
 	data1 = 0x01<<(y%8); 	
 	LCD_WrCmd(0xb0+(y>>3));
 	LCD_WrCmd(((x&0xf0)>>4)|0x10);
@@ -1223,7 +1223,7 @@ unsigned char F16x16tbm[]={
 0x21,0x12,0x0C,0x7F,0x4C,0x33,0x00,0x78,0x00,0x7E,0x00,0x7F,0x00,0x7F,0x00,0x00,/*"蓝牙满信号图标",0*/
 
 0x00,0x00,0xF8,0xC8,0xC8,0xCE,0xCE,0xCE,0xCE,0xCE,0xCE,0xC8,0xC8,0xF8,0x00,0x00,
-0x00,0x00,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x00,0x00,/*"电池图标",1*/
+0x00,0x00,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x3F,0x00,0x00,/*"电池满电图标",1*/
 
 0x00,0x00,0x00,0xFE,0xFE,0xC6,0xC6,0xC6,0xC6,0xC6,0xFE,0x7C,0x00,0x00,0x00,0x00,
 0x00,0x00,0x00,0x7F,0x7F,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x28,0x44,0x00,0x00,/*"禁止停车",2*/
@@ -1696,40 +1696,38 @@ void OLED_Interface(u8   num)
  {
 	 case 0:
 	  {
-     clear_OLED_VIEW(); 
-    OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
-	
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//政
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*5,0,11,0,1);//政
-	
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*1,0,12,0,1);
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*6,0,13,0,1);
-     
-  
-     OLED_Diamondhero_Draw_XXYY(24,24,F24x24,2,16,0,0,1);
-     OLED_Diamondhero_Draw_XXYY(24,24,F24x24,27,16,1,0,1);
-     OLED_Diamondhero_Draw_XXYY(24,24,F24x24,52,16,2,0,1);
-     OLED_Diamondhero_Draw_XXYY(24,24,F24x24,77,16,3,0,1);
-     OLED_Diamondhero_Draw_XXYY(24,24,F24x24,102,16,4,0,1);
+       clear_OLED_VIEW(); 
+             
+       OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*1,0,12,0,1);//左边翼
+                 
+       OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//自
+       OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//由
+       OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//之
+       OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*5,0,11,0,1);//翼
+                    
+       OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*6,0,13,0,1); //右边翼
+                 
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,2,16,0,0,1);
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,27,16,1,0,1);
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,52,16,2,0,1);
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,77,16,3,0,1);
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,102,16,4,0,1);
 
-		 OLED_Diamondhero_Draw_XXYY(24,24,F24x24,2,40,5,0,1);
-		 OLED_Diamondhero_Draw_XXYY(24,24,F24x24,27,40,6,0,1);
-		 OLED_Diamondhero_Draw_XXYY(24,24,F24x24,52,40,7,0,1);
-		 OLED_Diamondhero_Draw_XXYY(24,24,F24x24,77,40,8,0,1);
-		 OLED_Diamondhero_Draw_XXYY(24,24,F24x24,102,40,9,0,1);
-		 OLED_VIEW_OUT(0,0,128,8,OLED_GRAM);
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,2,40,5,0,1);
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,27,40,6,0,1);
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,52,40,7,0,1);
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,77,40,8,0,1);
+       OLED_Diamondhero_Draw_XXYY(24,24,F24x24,102,40,9,0,1);
+       OLED_VIEW_OUT(0,0,128,8,OLED_GRAM);
 		// Dis_float(0,0,num);
    }
    break;
    case 1:
 	 {
-	   clear_OLED_VIEW();		 
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
-	
+     clear_OLED_VIEW();		 
+     
+     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,1,0,1);
+     
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//政
@@ -1756,10 +1754,10 @@ void OLED_Interface(u8   num)
 	 break;
 	 case 2:
 	 {
-	   clear_OLED_VIEW();	 
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
-	  
+     clear_OLED_VIEW();	 
+     
+     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,2,0,1);
+     
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//政
@@ -1786,10 +1784,9 @@ void OLED_Interface(u8   num)
 	 break;
 	 case 3:
 	 {
-	   clear_OLED_VIEW();
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
-	
+    clear_OLED_VIEW();
+    OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,3,0,1);
+    
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//政
@@ -1816,11 +1813,9 @@ void OLED_Interface(u8   num)
 	 break;
 	 case 4:
 	 {
-     clear_OLED_VIEW(); 
-
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
-	
+     clear_OLED_VIEW();                  
+     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);
+     
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//政
@@ -1848,9 +1843,8 @@ void OLED_Interface(u8   num)
 	 case 5:
 	 {
      clear_OLED_VIEW();
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
-	
+     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,0,0,1);
+     
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//政
@@ -1877,11 +1871,10 @@ void OLED_Interface(u8   num)
 	 break;
 	 case 6:
 	 {
-     clear_OLED_VIEW(); 
-
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
-	
+     clear_OLED_VIEW();
+     
+     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,5,0,1);
+     
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//政
@@ -1909,9 +1902,7 @@ void OLED_Interface(u8   num)
 	 case 7:
 	 {
      clear_OLED_VIEW(); 
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
-	
+     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,6,0,1); 
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//政
@@ -1940,9 +1931,8 @@ void OLED_Interface(u8   num)
 	 {
      clear_OLED_VIEW();
 
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
-	
+     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,7,0,1); 
+     
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*4,0,10,0,1);//政
@@ -1970,8 +1960,6 @@ void OLED_Interface(u8   num)
 	 case 9:
 	 {
      clear_OLED_VIEW(); 
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
 	
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
@@ -2000,8 +1988,6 @@ void OLED_Interface(u8   num)
 	 case 10:
 	 {
      clear_OLED_VIEW(); 
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,0,0,4,0,1);  //蓝牙
-     OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*15,0,7,0,1);//电源
 	
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*2,0,8,0,1);//沙
      OLED_Diamondhero_Draw_XXYY(16,16,F16x16tbm,16*3,0,9,0,1);//学
@@ -2072,8 +2058,14 @@ void OLED_function(u8  num)
 	 break;
 	 case 4:
 	 {
-           LCD_CLS();
-           OLED_P6x8Str(15,0,"AD");//显示数据
+
+           for(int i=0; i<128;i++)
+           {
+             data[i]=(u8)light_info.voltag*77.5757;
+           }
+           VIEW_CCD_dongtai(data);          
+           OLED_P6x8Str(15,7,"AD:");//显示数据
+           Dis_float(35,7, light_info.voltag);
 	 }
 	 break;
 	 case 5:
@@ -2217,7 +2209,6 @@ void LCD_P8x16Str(byte x,byte y,byte ch[])
     j++;
   }
 }
-
 
 
 

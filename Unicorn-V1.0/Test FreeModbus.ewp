@@ -330,6 +330,8 @@
           <state>$PROJ_DIR$\my code\system\System task</state>
           <state>$PROJ_DIR$\my code\STMFLASH</state>
           <state>$PROJ_DIR$\my code\Beep</state>
+          <state>$PROJ_DIR$\my code\ADC</state>
+          <state>$PROJ_DIR$\my code\Unicorn drive</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -2139,6 +2141,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\my code\STMFLASH\stmflash.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Unicorn drive\Unicorn_drive.c</name>
     </file>
   </group>
   <group>

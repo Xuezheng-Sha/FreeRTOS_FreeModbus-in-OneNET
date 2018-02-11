@@ -22,6 +22,7 @@ int main(void)
           KEY_Init();
           LED_Init();
           Beep_Init();
+          LIGHT_Init();										//初始化
          //__set_PRIMASK(1); 
         //初始化 RTU模式 从机地址为1 USART1 9600 无校验
           eMBInit(MB_RTU, 0x01, 0x01, 9600, MB_PAR_NONE);
@@ -84,7 +85,7 @@ static void vTaskFLASH(void *pvParameters)
              LCD_CLS();
              OLED_P6x8Str(0,4,"Beep !"); 
              Beep_Set(BEEP_ON);
-             vTaskDelay(500);
+             vTaskDelay(1000);
              Beep_Set(BEEP_OFF);           //打开蜂鸣器,关闭蜂鸣器
              flag_Beep=false;
        }
@@ -108,6 +109,7 @@ static void vTaskLED(void *pvParameters)
     /* LED闪烁 */
     while(1)
     {
+      LIGHT_GetVoltag() ;//光敏
       vTaskDelay(100);
     }
 }

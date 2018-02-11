@@ -2496,6 +2496,9 @@
     <file>
       <name>$PROJ_DIR$\my code\STMFLASH\stmflash.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Unicorn drive\Unicorn_drive.c</name>
+    </file>
   </group>
   <group>
     <name>StartUp</name>

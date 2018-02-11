@@ -2,8 +2,16 @@
 #define _ADC_H_
 #include "includes.h"
 
-void bsp_InitADC(void);
-float GetTemp(uint16_t advalue);
+
+void ADCx_Init(ADC_TypeDef *ADCx, _Bool tempFlag);
+
+unsigned short ADCx_GetValue(ADC_TypeDef *ADCx, unsigned char ch);
+
+unsigned short ADCx_GetValueTimes(ADC_TypeDef *ADCx, unsigned char ch, unsigned char times);
+
+float ADCx_GetVoltag(ADC_TypeDef *ADCx, unsigned char ch, unsigned char times);
+
+float ADC1_GetTemperature(void);
 
 
 
