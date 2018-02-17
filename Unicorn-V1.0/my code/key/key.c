@@ -134,45 +134,28 @@ void KEY_red(void)
  switch(Keyboard())
   {
   case KEY0DOWN:{
-       GO_1=false;
-      if(menu>0)
-      {
-	OLED_Interface(menu);
-       }
-      else
-      {
-        menu=10; 
-        OLED_Interface(menu);
-      }
-      menu-=1;
+       GO_1=false;      
+       menu-=1;
+       if(menu<1) menu=1;
+       else if(menu>9) menu=10;
+       OLED_Interface(menu);
+
       }break;
    case KEY1DOWN:{
             GO_1=false;
             menu+=1;
-            if(menu>10)
-         {
-              menu=0;
-              OLED_Interface(menu);
-          }
-               else
-              OLED_Interface(menu);
+            if(menu>10)  menu=1;
+            else if(menu<1) menu=10;
+            OLED_Interface(menu);
         }break;
     case KEY2DOWN:{
                  GO_1=true;
 	      }break;
 case KEY3DOWN:{
+  
                     
      }break;			
   default:
    break;	
  }
 }
-
-
-
-
-
-
-
-
-

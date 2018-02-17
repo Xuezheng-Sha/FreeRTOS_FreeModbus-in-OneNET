@@ -115,7 +115,6 @@ float ADCx_GetVoltag(ADC_TypeDef *ADCx, unsigned char ch, unsigned char times)
 {
 
 	unsigned short voltag = ADCx_GetValueTimes(ADCx, ch, times);
-	
 	return (float)voltag / 4096 * 3.3;
 
 }
