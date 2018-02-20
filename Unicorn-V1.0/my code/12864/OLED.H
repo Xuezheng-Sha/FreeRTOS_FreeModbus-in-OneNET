@@ -4,7 +4,7 @@
 
 #define   byte        u8
 #define   word        u16
-//-----------------OLED端口定义----------------  					   
+/*-----------------OLED端口定义----------------*/					   
 /*
 #define LCD_SCL_CLR()	GPIO_ResetBits(GPIOB,GPIO_Pin_9)
 #define LCD_SCL_SET()	GPIO_SetBits(GPIOB,GPIO_Pin_9)
