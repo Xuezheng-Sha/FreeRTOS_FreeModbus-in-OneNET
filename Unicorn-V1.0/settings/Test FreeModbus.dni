@@ -9,7 +9,7 @@ ActionState=1
 Enabled=0
 ShowSource=1
 [DebugChecksum]
-Checksum=-682727714
+Checksum=1199136320
 [DisAssemblyWindow]
 NumStates=_ 1
 State 1=_ 1
@@ -172,7 +172,11 @@ ProbeSetup0=2 1 1 2 0 0
 mode=0
 [Breakpoints2]
 Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\User}.85.5" 0 0 1 "" 0 "" 0
-Count=1
+Bp1=_ 1 "EMUL_CODE" "{$PROJ_DIR$\my code\delay\delay.c}.51.2" 0 0 1 "" 0 "" 0
+Bp2=_ 1 "EMUL_CODE" "{$PROJ_DIR$\my code\delay\delay.c}.53.2" 0 0 1 "" 0 "" 0
+Bp3=_ 1 "EMUL_CODE" "{$PROJ_DIR$\my code\delay\delay.c}.53.2" 0 0 1 "" 0 "" 0
+Bp4=_ 1 "EMUL_CODE" "{$PROJ_DIR$\my code\delay\delay.c}.55.2" 0 0 1 "" 0 "" 0
+Count=5
 [Aliases]
 A0=_ "G:\计划文档\32项目计划\32工程\NO.8 FreeModbus+FreeRTOS移植\CMSIS\system_stm32f10x.c" ""
 A1=_ "G:\计划文档\32项目计划\32工程\NO.8 FreeModbus+FreeRTOS移植\my code\Agreement\FreeModbus\modbus\functions\mbfunccoils.c" ""

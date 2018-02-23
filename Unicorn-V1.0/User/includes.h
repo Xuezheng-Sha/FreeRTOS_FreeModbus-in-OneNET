@@ -39,6 +39,8 @@
 #include "OLED.h"
 #include "key.h"
 #include "delay.h"
+#include "spi.h"
+#include "ADXL362.h"
 #include "stmflash.h"
 #include "beep.h"
 #include "mb.h"
@@ -48,6 +50,9 @@
 #include "Systemtask.h"
 #include "adc.h"
 #include "Unicorn_drive.h"
+#include "at24c02.h"
+#include "i2c.h"
+#include "sht20.h"
 /*
 *********************************************************************************************************
 * OS

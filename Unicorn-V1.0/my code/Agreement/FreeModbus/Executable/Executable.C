@@ -8,7 +8,7 @@
 //保持寄存器起始地址
 #define REG_HOLDING_START     0x00D2
 //保持寄存器数量
-#define REG_HOLDING_NREGS     8
+#define REG_HOLDING_NREGS     20
 
 //线圈起始地址
 #define REG_COILS_START       0x0000
@@ -29,7 +29,9 @@ uint16_t usRegInputBuf[REG_INPUT_NREGS] = {0x1000,0x1001,0x1002,0x1003,0x1004,0x
 uint16_t usRegInputStart = REG_INPUT_START;
 
 //保持寄存器内容 功能码04 //0X3139 0x5838 0x0001 0x0001
-uint16_t usRegHoldingBuf[REG_HOLDING_NREGS] = {0X3139,0x5838,0x0001,0x0001,0xC28F,0x3F75,0x147b,0x408e};//
+uint16_t usRegHoldingBuf[REG_HOLDING_NREGS] = {0X3139,0x5838,0x0001,0x0001,
+                                               0xC28F,0x3F75,0x147b,0x408e,
+                                               0xC28F,0x3F75,0x147b,0x408e};//
 //保持寄存器起始地址
 uint16_t usRegHoldingStart = REG_HOLDING_START;
 
@@ -236,13 +238,20 @@ eMBRegDiscreteCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNDiscrete )
   * @retval None
   */    
 u16 ret; 
-
+extern unsigned char readByte; 
 void LED_Poll(void)
 {
-//  if(ucRegCoilsBuf[0] == 0x01) {Led1_Set(LED_ON);} else {Led1_Set(LED_OFF);}
-//  if(ucRegCoilsBuf[1] == 0x01) {Led2_Set(LED_ON);} else {Led2_Set(LED_OFF);}
-//  if(ucRegCoilsBuf[2] == 0x01) {Led3_Set(LED_ON);} else {Led3_Set(LED_OFF);}
-//  if(ucRegCoilsBuf[3] == 0x01) {Led4_Set(LED_ON);} else {Led4_Set(LED_OFF);}
+     //三轴加速度
+     usRegHoldingBuf[4]=(unsigned short )(adxl362Info.x * 100);
+     usRegHoldingBuf[5]=(unsigned short )(adxl362Info.y * 100);
+     usRegHoldingBuf[6]=(unsigned short )(adxl362Info.z * 100);
+     //温湿度
+     usRegHoldingBuf[7]=(unsigned short )(sht20_info.tempreture * 100);
+     usRegHoldingBuf[8]=(unsigned short )(sht20_info.humidity * 100);
+     //E2PROM测试
+     usRegHoldingBuf[9]=(unsigned short )(readByte);
+     //亮度
+     usRegHoldingBuf[10]=(unsigned short )(light_info.voltag * 1000);
 }
 
 /**

@@ -2056,17 +2056,17 @@ void OLED_function(u8  num)
 //float temp;
    switch(num)
  {
-   case 0:
+   case 0://画面滚动
 	 {
            VIEW_DCXH_dongtai();
         }
    break;
-   case 1:
+   case 1://modbus_RTU
 	 {
           parameter();
 	 }
 	 break;
-	 case 2:
+	 case 2://CCD
 	 {
              for(int i=0;i<128;i++)
             {
@@ -2075,12 +2075,12 @@ void OLED_function(u8  num)
              VIEW_CCD_dongtai(data);
 	 }
 	 break;
-	 case 3:
+	 case 3://LOGO显示
 	 {
           Draw_LQLogo();
 	 }
 	 break;
-	 case 4:
+	 case 4://光敏电阻
 	 {
 
            for(int i=0; i<128;i++)
@@ -2092,29 +2092,45 @@ void OLED_function(u8  num)
            Dis_float(38,7, light_info.voltag);
 	 }
 	 break;
-	 case 5:
+	 case 5://蜂鸣器开关
 	 {
             flag_Beep=true;
 	 }
 	 break;
-	 case 6:
+	 case 6://流水灯开关
 	 {
             flag_LED=true;
 	 }
 	 break;
-	 case 7:
-	 {
+	 case 7://三轴加速度计
+	 { 
            
+           LCD_CLS();
+           unsigned char txt[16]="";
+           sprintf((char*)txt,"X:%0.2f",adxl362Info.x);
+           OLED_P6x8Str(0,0,txt);
+           
+           sprintf((char*)txt,"Y:%0.2f",adxl362Info.y);
+           OLED_P6x8Str(0,3,txt);
+           
+           sprintf((char*)txt,"Z:%0.2f",adxl362Info.z);
+           OLED_P6x8Str(0,5,txt);        
 	 }
 	 break;
-	 case 8:
+	 case 8://E2PROM
 	 {
-
+           AT24C02();
 	 }
 	 break;
-	 case 10:
+	 case 9://温湿度
 	 {
-
+           SHT20_GetValue();
+           LCD_CLS();
+           unsigned char txt[16]="";
+           sprintf((char*)txt,"X:%0.2fC",sht20_info.tempreture);
+           OLED_P6x8Str(0,0,txt);
+           sprintf((char*)txt,"Y:%0.2f%%",sht20_info.humidity);
+           OLED_P6x8Str(0,3,txt);
 	 }
 	 break;
      default:
@@ -2208,7 +2224,25 @@ void drawPixel(uint8_t x, uint8_t y)
 
 
 }
-
+/***********************************************************************************
+*
+*  函数名称：AT24C02
+*  功能说明：储存芯片读写测试
+*  参数说明：无
+*  函数返回：无
+***********************************************************************************/
+unsigned char writeByte = 0, readByte = 0; 
+unsigned char txt[16]="";
+void AT24C02()
+{
+        LCD_CLS();
+	AT24C02_WriteByte(0x00, writeByte++);
+	DelayXms(10);
+	AT24C02_ReadByte(0x00, &readByte);
+        sprintf((char*)txt,"AT24C02 Test:%d",readByte);
+        OLED_P6x8Str(0,0,txt);
+        DelayMs(1000);
+}
 
 //==============================================================
 //函数名：LCD_P8x16Str(u8 x,u8 y,u8 *p)

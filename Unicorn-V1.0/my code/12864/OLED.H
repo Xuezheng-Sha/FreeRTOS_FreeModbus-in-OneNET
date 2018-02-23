@@ -56,7 +56,8 @@ extern void oled_showPicture(u8 x,u8 y,const u8 *p,u8 p_w,u8 p_h);
 extern void LCD_PXXxYYCHtoBMP(unsigned char xx,unsigned char yy,
 unsigned char FXXxYY[],unsigned char x,unsigned char y,
 unsigned char N,unsigned char p);
-extern	 void gundong(void);
+extern	void gundong(void);
+extern  void AT24C02();
 extern	void OLED_Interface(u8 num);
 extern  void OLED_function(u8  num);
 extern  void VIEW_CCD_dongtai(u8 x[]);//

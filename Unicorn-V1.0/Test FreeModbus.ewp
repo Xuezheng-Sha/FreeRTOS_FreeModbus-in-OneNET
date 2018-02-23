@@ -332,6 +332,11 @@
           <state>$PROJ_DIR$\my code\Beep</state>
           <state>$PROJ_DIR$\my code\ADC</state>
           <state>$PROJ_DIR$\my code\Unicorn drive</state>
+          <state>$PROJ_DIR$\my code\ADXL362</state>
+          <state>$PROJ_DIR$\my code\SPI</state>
+          <state>$PROJ_DIR$\my code\AT24C02</state>
+          <state>$PROJ_DIR$\my code\I2C</state>
+          <state>$PROJ_DIR$\my code\SHT20</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -2125,10 +2130,19 @@
       <name>$PROJ_DIR$\my code\ADC\ADC.C</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\my code\ADXL362\ADXL362.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\AT24C02\at24c02.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\my code\Beep\Beep.C</name>
     </file>
     <file>
       <name>$PROJ_DIR$\my code\delay\delay.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\I2C\i2c.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\my code\key\key.c</name>
@@ -2138,6 +2152,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\my code\12864\OLED.C</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\SHT20\sht20.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\SPI\spi.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\my code\STMFLASH\stmflash.c</name>
