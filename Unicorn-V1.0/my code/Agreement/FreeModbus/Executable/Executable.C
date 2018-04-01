@@ -29,7 +29,8 @@ uint16_t usRegInputBuf[REG_INPUT_NREGS] = {0x1000,0x1001,0x1002,0x1003,0x1004,0x
 uint16_t usRegInputStart = REG_INPUT_START;
 
 //保持寄存器内容 功能码04 //0X3139 0x5838 0x0001 0x0001
-uint16_t usRegHoldingBuf[REG_HOLDING_NREGS] = {0X3139,0x5838,0x0001,0x0001,
+//0X5853,0x405A,0x0001,0x0005,
+uint16_t usRegHoldingBuf[REG_HOLDING_NREGS] = {0X5853,0x405A,0x0001,0x0005,
                                                0xC28F,0x3F75,0x147b,0x408e,
                                                0xC28F,0x3F75,0x147b,0x408e};//
 //保持寄存器起始地址
@@ -241,6 +242,8 @@ u16 ret;
 extern unsigned char readByte; 
 void LED_Poll(void)
 {
+     //memcpy
+     //((char*)&f)[0]
      //三轴加速度
      usRegHoldingBuf[4]=(unsigned short )(adxl362Info.x * 100);
      usRegHoldingBuf[5]=(unsigned short )(adxl362Info.y * 100);

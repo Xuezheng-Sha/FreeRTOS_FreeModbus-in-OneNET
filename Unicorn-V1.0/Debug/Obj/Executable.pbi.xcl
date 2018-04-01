@@ -54,6 +54,10 @@ E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\I2C
 -I
 E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\SHT20
 -I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\ESP8266
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Usart
+-I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
@@ -111,6 +115,10 @@ E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\AT24C02
 E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\I2C
 -I
 E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\SHT20
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\ESP8266
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Usart
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -DUSE_STDPERIPH_DRIVER=1

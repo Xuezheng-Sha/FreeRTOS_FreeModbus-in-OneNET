@@ -20,17 +20,19 @@ int main(void)
 {         
           Delay_Init();	//Timer3初始化
           IIC_Init();	//I2C总线初始化
-          ADXL362_Init();//三轴加速计初始化
+          ADXL362_Init();    //三轴加速计初始化
           LCD_Init();
           KEY_Init();
           LED_Init();
           Beep_Init();
-          LIGHT_Init();										//初始化
+          LIGHT_Init();//初始化
          //__set_PRIMASK(1); 
         //初始化 RTU模式 从机地址为1 USART1 9600 无校验
           eMBInit(MB_RTU, 0x01, 0x01, 9600, MB_PAR_NONE);
         //启动FreeModbus 
           eMBEnable();
+          Usart2_Init(115200);//串口2，驱动ESP8266用
+          ESP8266_Init();
         // 创建任务
         AppTaskCreate();
                 
@@ -101,7 +103,7 @@ static void vTaskFLASH(void *pvParameters)
 /*
 *********************************************************************************************************
 *	函 数 名: vTaskLED
-*	功能说明: LED闪烁	
+*	功能说明: 光敏电阻&角度传感器	
 *	形    参: pvParameters 是在创建该任务时传递的形参
 *	返 回 值: 无
 *   优 先 级: 2  
@@ -192,5 +194,5 @@ static void AppTaskCreate (void)
                  512,            		/* 任务栈大小，单位word，也就是4字节 */
                  NULL,           		/* 任务参数  */
                  4,              		/* 任务优先级*/
-                 &xHandleTaskStart );   /* 任务句柄  */
+                 &xHandleTaskStart );   /* 任务句柄  */    
 }

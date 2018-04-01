@@ -2491,6 +2491,9 @@
       <name>$PROJ_DIR$\my code\delay\delay.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\my code\ESP8266\esp8266.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\my code\I2C\i2c.c</name>
     </file>
     <file>
@@ -2513,6 +2516,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\my code\Unicorn drive\Unicorn_drive.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Usart\usart.c</name>
     </file>
   </group>
   <group>

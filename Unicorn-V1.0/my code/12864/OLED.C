@@ -2054,6 +2054,7 @@ u8 data[128];
 void OLED_function(u8  num)
 {	
 //float temp;
+  unsigned char *dataPtr;
    switch(num)
  {
    case 0://画面滚动
@@ -2068,11 +2069,23 @@ void OLED_function(u8  num)
 	 break;
 	 case 2://CCD
 	 {
-             for(int i=0;i<128;i++)
-            {
-              data[i]= 255;
-            }
-             VIEW_CCD_dongtai(data);
+              LCD_CLS();
+//             for(int i=0;i<128;i++)
+//            {
+//              data[i]= 255;
+//            }
+//             VIEW_CCD_dongtai(data);
+              dataPtr = ESP8266_GetIPD(250);
+	    if(dataPtr != NULL)
+              {
+                  OLED_P6x8Str(30,4,"Data(-v-)");//显示数据
+                 Dis_float(38,7, *dataPtr);
+              }
+              else
+              {
+                ESP8266_SendData("你好，沙\n", 10);//上传平台
+                OLED_P6x8Str(30,4,"MQTT-work....");//显示数据
+              }
 	 }
 	 break;
 	 case 3://LOGO显示

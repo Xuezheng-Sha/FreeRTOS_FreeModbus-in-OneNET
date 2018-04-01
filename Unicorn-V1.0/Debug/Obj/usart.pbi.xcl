@@ -1,36 +1,62 @@
-"G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\usart\usart.c"
+"E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Usart\usart.c"
 -std=c99
 -ferror-limit=100
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\CMSIS
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\CMSIS
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\StdPeriph_Driver\inc
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\StdPeriph_Driver\inc
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\User
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\User
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeModbus\modbus\include
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\12864
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeModbus\modbus\rtu
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\delay
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeModbus\port
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\key
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\12864
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\LED
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\delay
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\modbus
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\key
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\modbus\include
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\LED
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\port
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeRTOS-9\portable\RVDS\ARM_CM3
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\modbus\rtu
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeRTOS-9\include
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\modbus\ascii
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\sys
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\FreeRTOS-8\portable\IAR\ARM_CM3
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\usart
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\FreeRTOS-8\include
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\TIMER
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\FreeRTOS-8
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\Executable
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\System task
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\STMFLASH
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Beep
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\ADC
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Unicorn drive
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\ADXL362
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\SPI
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\AT24C02
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\I2C
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\SHT20
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\ESP8266
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Usart
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -I
@@ -38,35 +64,61 @@ D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\c
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\CMSIS
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\CMSIS
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\StdPeriph_Driver\inc
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\StdPeriph_Driver\inc
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\User
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\User
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeModbus\modbus\include
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\12864
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeModbus\modbus\rtu
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\delay
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeModbus\port
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\key
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\12864
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\LED
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\delay
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\modbus
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\key
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\modbus\include
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\LED
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\port
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeRTOS-9\portable\RVDS\ARM_CM3
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\modbus\rtu
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\FreeRTOS-9\include
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\modbus\ascii
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\sys
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\FreeRTOS-8\portable\IAR\ARM_CM3
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\usart
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\FreeRTOS-8\include
 -I
-G:\计划文档\32项目计划\32工程\NO.7 FreeModbus移植成功\my code\TIMER
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\FreeRTOS-8
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Agreement\FreeModbus\Executable
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\system\System task
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\STMFLASH
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Beep
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\ADC
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Unicorn drive
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\ADXL362
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\SPI
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\AT24C02
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\I2C
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\SHT20
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\ESP8266
+-I
+E:\Code-version-Library\foodsafety\Unicorn-V1.0\my code\Usart
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -DUSE_STDPERIPH_DRIVER=1
