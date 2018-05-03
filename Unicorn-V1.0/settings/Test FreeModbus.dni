@@ -9,7 +9,7 @@ ActionState=1
 Enabled=0
 ShowSource=1
 [DebugChecksum]
-Checksum=-1605589723
+Checksum=310784363
 [DisAssemblyWindow]
 NumStates=_ 1
 State 1=_ 1
@@ -172,12 +172,13 @@ ProbeSetup0=2 1 1 2 0 0
 mode=0
 [Breakpoints2]
 Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\User}.85.5" 0 0 1 "" 0 "" 0
-Bp1=_ 1 "EMUL_CODE" "{$PROJ_DIR$\my code\12864\OLED.C}.2082.18" 0 0 1 "" 0 "" 0
-Bp2=_ 1 "EMUL_CODE" "{$PROJ_DIR$\my code\12864\OLED.C}.2086.17" 0 0 1 "" 0 "" 0
-Bp3=_ 1 "EMUL_CODE" "{$PROJ_DIR$\my code\12864\OLED.C}.2087.17" 0 0 1 "" 0 "" 0
+Bp1=_ 1 "EMUL_CODE" "{$PROJ_DIR$\my code\12864\OLED.C}.2091.3" 0 0 1 "" 0 "" 0
+Bp2=_ 1 "EMUL_CODE" "{$PROJ_DIR$\my code\12864\OLED.C}.2083.17" 0 0 1 "" 0 "" 0
+Bp3=_ 1 "EMUL_CODE" "{$PROJ_DIR$\User\main.c}.90.14" 0 0 1 "" 0 "" 0
 Count=4
 [Aliases]
-A0=_ "G:\计划文档\32项目计划\32工程\NO.8 FreeModbus+FreeRTOS移植\CMSIS\system_stm32f10x.c" ""
-A1=_ "G:\计划文档\32项目计划\32工程\NO.8 FreeModbus+FreeRTOS移植\my code\Agreement\FreeModbus\modbus\functions\mbfunccoils.c" ""
-Count=2
+A0=_ "D:\Utility Add\IAR Systems\Embedded Workbench 7.5\arm\inc\c\DLib_Product_string.h" ""
+A1=_ "G:\计划文档\32项目计划\32工程\NO.8 FreeModbus+FreeRTOS移植\CMSIS\system_stm32f10x.c" ""
+A2=_ "G:\计划文档\32项目计划\32工程\NO.8 FreeModbus+FreeRTOS移植\my code\Agreement\FreeModbus\modbus\functions\mbfunccoils.c" ""
+Count=3
 SuppressDialog=1

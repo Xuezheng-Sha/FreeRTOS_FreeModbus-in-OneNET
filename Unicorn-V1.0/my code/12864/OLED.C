@@ -2070,20 +2070,21 @@ void OLED_function(u8  num)
 	 case 2://CCD
 	 {
               LCD_CLS();
-//             for(int i=0;i<128;i++)
-//            {
-//              data[i]= 255;
-//            }
-//             VIEW_CCD_dongtai(data);
               dataPtr = ESP8266_GetIPD(250);
 	    if(dataPtr != NULL)
               {
-                  OLED_P6x8Str(30,4,"Data(-v-)");//显示数据
+                 OLED_P6x8Str(30,4,"Data(-v-)");//显示数据
                  Dis_float(38,7, *dataPtr);
               }
               else
               {
-                ESP8266_SendData("你好，沙\n", 10);//上传平台
+                unsigned char txt[500]=""; 
+                SHT20_GetValue();
+                sprintf(
+                        (char*)txt,"\n 移动开发板数据包：\n{\n X:%0.2f\n Y:%0.2f\n Z:%0.2f\n 亮度:%0.2f\n 温度:%0.2fC\n 湿度:%0.2f%%\n}\n",
+                         adxl362Info.x,adxl362Info.y,adxl362Info.z,light_info.voltag,sht20_info.tempreture,sht20_info.humidity
+                       );
+                ESP8266_SendData(txt, 200);//上传平台
                 OLED_P6x8Str(30,4,"MQTT-work....");//显示数据
               }
 	 }
@@ -2144,6 +2145,12 @@ void OLED_function(u8  num)
            OLED_P6x8Str(0,0,txt);
            sprintf((char*)txt,"Y:%0.2f%%",sht20_info.humidity);
            OLED_P6x8Str(0,3,txt);
+	 }
+	 break;
+         case 10://软件复位
+	 {
+           __set_FAULTMASK(1);
+           NVIC_SystemReset();
 	 }
 	 break;
      default:

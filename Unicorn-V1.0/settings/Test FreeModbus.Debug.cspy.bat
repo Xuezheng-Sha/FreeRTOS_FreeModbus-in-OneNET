@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "E:\Code-version-Library\foodsafety\Unicorn-V1.0\settings\Test FreeModbus.Debug.general.xcl" --backend -f "E:\Code-version-Library\foodsafety\Unicorn-V1.0\settings\Test FreeModbus.Debug.driver.xcl" 
+"G:\Program Files\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "G:\STM32\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\settings\Test FreeModbus.Debug.general.xcl" --backend -f "G:\STM32\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\settings\Test FreeModbus.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "E:\Code-version-Library\foodsafety\Unicorn-V1.0\settings\Test FreeModbus.Debug.general.xcl" "--debug_file=%~1" --backend -f "E:\Code-version-Library\foodsafety\Unicorn-V1.0\settings\Test FreeModbus.Debug.driver.xcl" 
+"G:\Program Files\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "G:\STM32\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\settings\Test FreeModbus.Debug.general.xcl" "--debug_file=%~1" --backend -f "G:\STM32\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\settings\Test FreeModbus.Debug.driver.xcl" 
 
 @echo off 
 :end

@@ -30,7 +30,7 @@ uint16_t usRegInputStart = REG_INPUT_START;
 
 //保持寄存器内容 功能码04 //0X3139 0x5838 0x0001 0x0001
 //0X5853,0x405A,0x0001,0x0005,
-uint16_t usRegHoldingBuf[REG_HOLDING_NREGS] = {0X5853,0x405A,0x0001,0x0005,
+uint16_t usRegHoldingBuf[REG_HOLDING_NREGS] = {0X3139, 0x5838 ,0x0001, 0x0001,
                                                0xC28F,0x3F75,0x147b,0x408e,
                                                0xC28F,0x3F75,0x147b,0x408e};//
 //保持寄存器起始地址
@@ -245,16 +245,16 @@ void LED_Poll(void)
      //memcpy
      //((char*)&f)[0]
      //三轴加速度
-     usRegHoldingBuf[4]=(unsigned short )(adxl362Info.x * 100);
-     usRegHoldingBuf[5]=(unsigned short )(adxl362Info.y * 100);
-     usRegHoldingBuf[6]=(unsigned short )(adxl362Info.z * 100);
+     usRegHoldingBuf[4]=(uint16_t )(adxl362Info.x * 100);
+     usRegHoldingBuf[5]=(uint16_t)(adxl362Info.y * 100);
+     usRegHoldingBuf[6]=(uint16_t)(adxl362Info.z * 100);
      //温湿度
-     usRegHoldingBuf[7]=(unsigned short )(sht20_info.tempreture * 100);
-     usRegHoldingBuf[8]=(unsigned short )(sht20_info.humidity * 100);
+     usRegHoldingBuf[7]=(uint16_t)(sht20_info.tempreture * 100);
+     usRegHoldingBuf[8]=(uint16_t)(sht20_info.humidity * 100);
      //E2PROM测试
-     usRegHoldingBuf[9]=(unsigned short )(readByte);
+     usRegHoldingBuf[9]=(uint16_t)(readByte);
      //亮度
-     usRegHoldingBuf[10]=(unsigned short )(light_info.voltag * 1000);
+     usRegHoldingBuf[10]=(uint16_t)(light_info.voltag * 1000);
 }
 
 /**
