@@ -11,6 +11,14 @@ static TaskHandle_t xHandleTaskFLASH = NULL;
 static TaskHandle_t xHandleTaskLED = NULL;
 static TaskHandle_t xHandleTaskMsgPro = NULL;
 static TaskHandle_t xHandleTaskStart = NULL;
+
+#define ADDRESS     "tcp://localhost:1883"
+#define CLIENTID    "ExampleClientPub"
+#define TOPIC       "MQTT Examples"
+#define PAYLOAD     "Hello World!"
+#define QOS         1
+#define TIMEOUT     10000L
+
 /**
   * @brief  主循环
   * @param  None
@@ -18,6 +26,10 @@ static TaskHandle_t xHandleTaskStart = NULL;
   */
 int main(void)
 {         
+//          MQTTClient client;
+//          MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
+//          MQTTClient_message pubmsg = MQTTClient_message_initializer;
+//          MQTTClient_deliveryToken token;
           Delay_Init();	//Timer3初始化
           IIC_Init();	//I2C总线初始化
           ADXL362_Init();    //三轴加速计初始化

@@ -2,7 +2,7 @@
 
 "G:\Program Files\IAR Systems\Embedded Workbench 7.5\arm\bin\armjlink2.dll" 
 
-"G:\STM32\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\Debug\Exe\Test FreeModbus.out" 
+"G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\Debug\Exe\Test FreeModbus.out" 
 
 --plugin "G:\Program Files\IAR Systems\Embedded Workbench 7.5\arm\bin\armbat.dll" 
 

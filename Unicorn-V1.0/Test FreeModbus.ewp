@@ -339,6 +339,11 @@
           <state>$PROJ_DIR$\my code\SHT20</state>
           <state>$PROJ_DIR$\my code\ESP8266</state>
           <state>$PROJ_DIR$\my code\Usart</state>
+          <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src</state>
+          <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\samples</state>
+          <state>$PROJ_DIR$\my code\Agreement\cJSON</state>
+          <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTClient-C\src</state>
+          <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTClient-C\src\FreeRTOS</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1968,6 +1973,12 @@
     </settings>
   </configuration>
   <group>
+    <name>cJSON</name>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\cJSON\cJSON.c</name>
+    </file>
+  </group>
+  <group>
     <name>CMSIS</name>
     <file>
       <name>$PROJ_DIR$\CMSIS\core_cm3.c</name>
@@ -1983,6 +1994,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\CMSIS\system_stm32f10x.h</name>
+    </file>
+  </group>
+  <group>
+    <name>Explain</name>
+    <file>
+      <name>$PROJ_DIR$\Explain\Explain.txt</name>
     </file>
   </group>
   <group>
@@ -2060,6 +2077,9 @@
         <file>
           <name>$PROJ_DIR$\my code\Agreement\FreeModbus\modbus\rtu\mbrtu.h</name>
         </file>
+        <file>
+          <name>$PROJ_DIR$\my code\Agreement\FreeModbus\modbus\tcp\mbtcp.c</name>
+        </file>
       </group>
       <file>
         <name>$PROJ_DIR$\my code\Agreement\FreeModbus\modbus\mb.c</name>
@@ -2127,7 +2147,46 @@
     </file>
   </group>
   <group>
-    <name>my code</name>
+    <name>MQTT</name>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTClient-C\src\MQTTClient.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTConnectClient.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTConnectServer.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTDeserializePublish.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTFormat.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTClient-C\src\FreeRTOS\MQTTFreeRTOS.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTPacket.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTSerializePublish.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTSubscribeClient.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTSubscribeServer.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTUnsubscribeClient.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src\MQTTUnsubscribeServer.c</name>
+    </file>
+  </group>
+  <group>
+    <name>Mycode</name>
     <file>
       <name>$PROJ_DIR$\my code\ADC\ADC.C</name>
     </file>
@@ -2277,12 +2336,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\User\stm32f10x_it.h</name>
-    </file>
-  </group>
-  <group>
-    <name>&#x8BF4;&#x660e;</name>
-    <file>
-      <name>$PROJ_DIR$\&#x8BF4;&#x660e;\&#x8BF4;&#x660e;.txt</name>
     </file>
   </group>
 </project>
