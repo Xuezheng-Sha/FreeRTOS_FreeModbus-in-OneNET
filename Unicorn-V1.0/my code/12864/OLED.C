@@ -2,7 +2,7 @@
 #include "OLED.h"
 #include <stdio.h>
 #include "delay.h"
-
+#include "includes.h"
 
 
 #define X_WIDTH 128
@@ -2052,8 +2052,9 @@ uint32_t jk=0x00000000;
 u8 data[128];
 //函数界面
 void OLED_function(u8  num)
-{	
-//float temp;
+{
+  cJSON  *root,*fmt,*img,*thm,*fld;char *out;int i;	/* declare a few. */
+  unsigned char txt[500]=NULL; 
   unsigned char *dataPtr;
    switch(num)
  {
@@ -2075,17 +2076,34 @@ void OLED_function(u8  num)
               {
                  OLED_P6x8Str(30,4,"Data(-v-)");//显示数据
                  Dis_float(38,7, *dataPtr);
+                 Led1_Set(LED_ON);
+                 img = cJSON_CreateObject();
+                 cJSON_AddStringToObject(img, "收到内容为",dataPtr);
+                 out=cJSON_Print(img);	
+                 cJSON_Delete(img);
+                 sprintf((char*)txt,"%s\n",out);
+                 ESP8266_SendData(txt, 40);//上传平台	
+                 vPortFree(out);
               }
-              else
-              {
-                unsigned char txt[500]=""; 
-                SHT20_GetValue();
-                sprintf(
-                        (char*)txt,"\n 移动开发板数据包：\n{\n X:%0.2f\n Y:%0.2f\n Z:%0.2f\n 亮度:%0.2f\n 温度:%0.2fC\n 湿度:%0.2f%%\n}\n",
-                         adxl362Info.x,adxl362Info.y,adxl362Info.z,light_info.voltag,sht20_info.tempreture,sht20_info.humidity
-                       );
-                ESP8266_SendData(txt, 200);//上传平台
-                OLED_P6x8Str(30,4,"MQTT-work....");//显示数据
+            else
+               {
+                 SHT20_GetValue();
+                 OLED_P6x8Str(30,4,"MQTT-work....");//显示数据
+                 OLED_P6x8Str(30,5,"IAR");//显示数据
+                 Led1_Set(LED_OFF);
+                 fmt=cJSON_CreateObject();
+                 cJSON_AddNumberToObject(fmt,"Tempreture",sht20_info.tempreture);
+                 cJSON_AddNumberToObject(fmt,"Humidity",sht20_info.humidity);
+                 cJSON_AddNumberToObject(fmt,"X",adxl362Info.x);
+                 cJSON_AddNumberToObject(fmt, "Y", adxl362Info.y);
+                 cJSON_AddNumberToObject(fmt, "Z", adxl362Info.z);
+                 cJSON_AddNumberToObject(fmt, "z_angle", adxl362Info.z_angle);
+                 cJSON_AddNumberToObject(fmt, "Voltag", light_info.voltag);
+                 out=cJSON_Print(fmt);	
+                 cJSON_Delete(fmt);
+                 sprintf((char*)txt,"%s\n",out);
+                 ESP8266_SendData(txt, 500);//上传平台	 
+                 vPortFree(out);
               }
 	 }
 	 break;

@@ -2528,7 +2528,7 @@
     </file>
   </group>
   <group>
-    <name>Mycode</name>
+    <name>MyCode</name>
     <file>
       <name>$PROJ_DIR$\my code\ADC\ADC.C</name>
     </file>
@@ -2555,6 +2555,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\my code\LED\led.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Malloc\malloc.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\my code\12864\OLED.C</name>

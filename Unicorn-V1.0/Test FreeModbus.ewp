@@ -339,9 +339,10 @@
           <state>$PROJ_DIR$\my code\SHT20</state>
           <state>$PROJ_DIR$\my code\ESP8266</state>
           <state>$PROJ_DIR$\my code\Usart</state>
-          <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src</state>
-          <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\samples</state>
           <state>$PROJ_DIR$\my code\Agreement\cJSON</state>
+          <state>$PROJ_DIR$\my code\Malloc</state>
+          <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTPacket\src</state>
+          <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTClient-C</state>
           <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTClient-C\src</state>
           <state>$PROJ_DIR$\my code\Agreement\MQTT\MQTTClient-C\src\FreeRTOS</state>
         </option>
@@ -2186,7 +2187,7 @@
     </file>
   </group>
   <group>
-    <name>Mycode</name>
+    <name>MyCode</name>
     <file>
       <name>$PROJ_DIR$\my code\ADC\ADC.C</name>
     </file>
@@ -2213,6 +2214,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\my code\LED\led.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\my code\Malloc\malloc.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\my code\12864\OLED.C</name>

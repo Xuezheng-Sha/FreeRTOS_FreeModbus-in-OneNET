@@ -27,7 +27,7 @@
 #define ESP8266_WIFI_INFO		"AT+CWJAP=\"Smart_Code_sha\",\"shaxz1995424code\"\r\n"
 
 
-#define ESP8266_ONENET_INFO		"AT+CIPSTART=\"TCP\",\"192.168.0.104\",1883\r\n"
+#define ESP8266_ONENET_INFO		"AT+CIPSTART=\"TCP\",\"192.168.0.100\",1883\r\n"
 
 
 unsigned char esp8266_buf[128];
@@ -89,7 +89,7 @@ _Bool ESP8266_WaitRecive(void)
 //	函数功能：	发送命令
 //
 //	入口参数：	cmd：命令
-//				res：需要检查的返回指令
+//			res：需要检查的返回指令
 //
 //	返回参数：	0-成功	1-失败
 //
@@ -104,11 +104,11 @@ _Bool ESP8266_SendCmd(char *cmd, char *res)
 	
 	while(timeOut--)
 	{
-		if(ESP8266_WaitRecive() == REV_OK)							//如果收到数据
+		if(ESP8266_WaitRecive() == REV_OK)				//如果收到数据
 		{
-			if(strstr((const char *)esp8266_buf, res) != NULL)		//如果检索到关键词
+			if(strstr((const char *)esp8266_buf, res) != NULL)	//如果检索到关键词
 			{
-				ESP8266_Clear();									//清空缓存
+				ESP8266_Clear();				//清空缓存
 				
 				return 0;
 			}
@@ -138,13 +138,23 @@ void ESP8266_SendData(unsigned char *data, unsigned short len)
 
 	char cmdBuf[32];
 	
-	ESP8266_Clear();								//清空接收缓存
-	sprintf(cmdBuf, "AT+CIPSEND=%d\r\n", len);		//发送命令
+	ESP8266_Clear();						  //清空接收缓存
+	sprintf(cmdBuf, "AT+CIPSEND=%d\r\n", len);		         //发送命令
 	if(!ESP8266_SendCmd(cmdBuf, ">"))				//收到‘>’时可以发送数据
 	{
-		Usart_SendString(USART2, data, len);		//发送设备连接请求数据
+		Usart_SendString(USART2, data, len);		       //发送设备连接请求数据
 	}
+	else //重连机制
+	{
+                OLED_P6x8Str(10,2,"Reconnect !");//显示数据
+		//UsartPrintf(USART_DEBUG, "2. CWJAP\r\n");
+		while (ESP8266_SendCmd(ESP8266_WIFI_INFO, "GOT IP"))
+			DelayXms(500);
 
+		//UsartPrintf(USART_DEBUG, "3. CIPSTART\r\n");
+		while (ESP8266_SendCmd(ESP8266_ONENET_INFO, "CONNECT"))
+			DelayXms(500);
+	}
 }
 
 //==========================================================
@@ -168,7 +178,7 @@ unsigned char *ESP8266_GetIPD(unsigned short timeOut)
 	{
 		if(ESP8266_WaitRecive() == REV_OK)								//如果接收完成
 		{
-			ptrIPD = strstr((char *)esp8266_buf, "IPD,");				//搜索“IPD”头
+			ptrIPD = strstr((char *)esp8266_buf, "IPD,");				                //搜索“IPD”头
 			if(ptrIPD == NULL)											//如果没找到，可能是IPD头的延迟，还是需要等待一会，但不会超过设定的时间
 			{
 				//UsartPrintf(USART_DEBUG, "\"IPD\" not found\r\n");
@@ -214,7 +224,7 @@ void ESP8266_Init(void)
 
 	//ESP8266复位引脚
 	GPIO_Initure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_Initure.GPIO_Pin = GPIO_Pin_0;					//GPIOA0-复位
+	GPIO_Initure.GPIO_Pin = GPIO_Pin_0;	//GPIOA0-复位
 	GPIO_Initure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_Initure);
 	

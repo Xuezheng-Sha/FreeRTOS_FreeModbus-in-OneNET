@@ -55,9 +55,11 @@
 #include "sht20.h"
 #include "esp8266.h"
 #include "usart.h"
-#include "MQTTPacket.h"
-#include "MQTTClient.h"
+
+
 #include "cJSON.h"
+#include <stdlib.h>
+#include "malloc.h"
 /*
 *********************************************************************************************************
 * OS

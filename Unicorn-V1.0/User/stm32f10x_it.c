@@ -71,6 +71,9 @@ void HardFault_Handler(void)
   /* 当硬件失效异常发生时进入死循环 */
   while (1)
   {
+    OLED_P6x8Str(10,2,"Go to infinite loop");//显示数据
+    OLED_P6x8Str(10,3,"when Hard Fault");//显示数据
+    OLED_P6x8Str(10,4,"exception occurs");//显示数据
   }
   /* Go to infinite loop when Hard Fault exception occurs */
 }

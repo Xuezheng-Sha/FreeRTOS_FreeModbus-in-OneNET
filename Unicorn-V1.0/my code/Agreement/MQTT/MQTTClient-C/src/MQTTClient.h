@@ -35,9 +35,9 @@
 #endif
 
 #include "MQTTPacket.h"
-#include "MQTTFreeRTOS.h"
 #include "stdio.h"
-
+#include "MQTTFreeRTOS.h"
+   
 #if defined(MQTTCLIENT_PLATFORM_HEADER)
 /* The following sequence of macros converts the MQTTCLIENT_PLATFORM_HEADER value
  * into a string constant suitable for use with include.
@@ -53,10 +53,10 @@
 #define MAX_MESSAGE_HANDLERS 5 /* redefinable - how many subscriptions do you want? */
 #endif
 
-enum QoS { QOS0, QOS1, QOS2, SUBFAIL=0x80 };
+enum QoS { QOS0, QOS1, QOS2};
 
 /* all failure return codes must be negative */
-enum returnCode { BUFFER_OVERFLOW = -2, FAILURE = -1, MQ_SUCCESS = 0 };
+enum returnCode { BUFFER_OVERFLOW = -2, FAILURE = -1, MQTT_SUCCESS = 0 };
 
 /* The Platform specific header must define the Network and Timer structures and functions
  * which operate on them.

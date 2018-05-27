@@ -23,6 +23,7 @@
 #include "semphr.h"
 #include "task.h"
 
+#define MQTT_TASK    1
 typedef struct Timer 
 {
 	TickType_t xTicksToWait;
@@ -60,7 +61,6 @@ typedef struct Thread
 } Thread;
 
 int ThreadStart(Thread*, void (*fn)(void*), void* arg);
-int ThreadDelete(Thread* thread);
 
 int FreeRTOS_read(Network*, unsigned char*, int, int);
 int FreeRTOS_write(Network*, unsigned char*, int, int);

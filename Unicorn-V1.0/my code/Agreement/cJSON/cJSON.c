@@ -31,6 +31,7 @@
 #include <limits.h>
 #include <ctype.h>
 #include "cJSON.h"
+#include "includes.h"
 
 static const char *ep;
 
@@ -43,8 +44,8 @@ static int cJSON_strcasecmp(const char *s1,const char *s2)
 	return tolower(*(const unsigned char *)s1) - tolower(*(const unsigned char *)s2);
 }
 
-static void *(*cJSON_malloc)(size_t sz) = malloc;
-static void (*cJSON_free)(void *ptr) = free;
+static void *(*cJSON_malloc)(size_t sz) = pvPortMalloc; //为了确保打印正常 这里将 cJson.c里面malloc 和free改成freertos的内存函数pvPortMalloc、vPortFree,
+static void (*cJSON_free)(void *ptr) = vPortFree;
 
 static char* cJSON_strdup(const char* str)
 {

@@ -58,11 +58,11 @@ G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\ESP8266
 -I
 G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Usart
 -I
-G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Agreement\MQTT\MQTTPacket\src
--I
-G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Agreement\MQTT\MQTTPacket\samples
--I
 G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Agreement\cJSON
+-I
+G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Malloc
+-I
+G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Agreement\MQTT\MQTTPacket\src
 -I
 G:\Program Files\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -I
@@ -126,11 +126,11 @@ G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\ESP8266
 -I
 G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Usart
 -I
-G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Agreement\MQTT\MQTTPacket\src
--I
-G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Agreement\MQTT\MQTTPacket\samples
--I
 G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Agreement\cJSON
+-I
+G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Malloc
+-I
+G:\STM32\IAR-Edition\FreeRTOS_FreeModbus-in-OneNET\Unicorn-V1.0\my code\Agreement\MQTT\MQTTPacket\src
 -I
 G:\Program Files\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -DUSE_STDPERIPH_DRIVER=1

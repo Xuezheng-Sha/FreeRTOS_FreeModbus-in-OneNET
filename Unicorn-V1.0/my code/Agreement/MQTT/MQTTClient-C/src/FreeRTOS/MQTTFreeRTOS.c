@@ -16,19 +16,9 @@
  *******************************************************************************/
 
 #include "MQTTFreeRTOS.h"
-#include "includes.h"
 #include <string.h>
 #include <stdlib.h>
-#include "includes.h"
-
-int FreeRTOS_recv(unsigned char* buffer, int len, int timeout_ms);
-
-#define MAX_MQTT_RECV_LEN	(1024)
-
-u8  recev_buf[MAX_MQTT_RECV_LEN];
-u32 u32RecvLen;
-
-
+   
 
 int ThreadStart(Thread* thread, void (*fn)(void*), void* arg)
 {
@@ -46,14 +36,6 @@ int ThreadStart(Thread* thread, void (*fn)(void*), void* arg)
 	return rc;
 }
 
-int ThreadDelete(Thread* thread)
-{
-	int rc = 0;
-
-	vTaskDelete(thread->task);
-
-	return rc;
-}
 
 void MutexInit(Mutex* mutex)
 {
@@ -105,56 +87,29 @@ void TimerInit(Timer* timer)
 }
 
 
-
 int FreeRTOS_read(Network* n, unsigned char* buffer, int len, int timeout_ms)
 {
-	TickType_t xTicksToWait = timeout_ms / portTICK_PERIOD_MS; /* convert milliseconds to ticks */
+	//TickType_t xTicksToWait = timeout_ms / portTICK_PERIOD_MS; /* convert milliseconds to ticks */
 	TimeOut_t xTimeOut;
-	int recvLen = 0;
+        uint16_t i=0;
+	uint16_t usTmpCount = 0;
+	uint16_t usCopyCount = 0;
+	vTaskSetTimeOutState(&xTimeOut); 
+        /* Record the time at which this function was entered.*/
 
-	vTaskSetTimeOutState(&xTimeOut); /* Record the time at which this function was entered. */
-	do
-	{
-		int rc = 0;
-
-		//FreeRTOS_setsockopt(n->my_socket, 0, FREERTOS_SO_RCVTIMEO, &xTicksToWait, sizeof(xTicksToWait));
-		rc = FreeRTOS_recv(buffer + recvLen, len - recvLen, timeout_ms);
-		if (rc > 0)
-			recvLen += rc;
-		else if (rc < 0)
-		{
-			recvLen = rc;
-			break;
-		}
-	} while (recvLen < len && xTaskCheckForTimeOut(&xTimeOut, &xTicksToWait) == pdFALSE);
-
-	return recvLen;
+        
+	vTaskDelay(1);
+        return len;
 }
 
 
 int FreeRTOS_write(Network* n, unsigned char* buffer, int len, int timeout_ms)
 {
-	TickType_t xTicksToWait = timeout_ms / portTICK_PERIOD_MS; /* convert milliseconds to ticks */
 	TimeOut_t xTimeOut;
-	int sentLen = 0;
-
-	vTaskSetTimeOutState(&xTimeOut); /* Record the time at which this function was entered. */
-//	do
-//	{
-//		int rc = 0;
-//
-//		FreeRTOS_setsockopt(n->my_socket, 0, FREERTOS_SO_RCVTIMEO, &xTicksToWait, sizeof(xTicksToWait));
-//		rc = FreeRTOS_send(n->my_socket, buffer + sentLen, len - sentLen, 0);
-//		if (rc > 0)
-//			sentLen += rc;
-//		else if (rc < 0)
-//		{
-//			sentLen = rc;
-//			break;
-//		}
-//	} while (sentLen < len && xTaskCheckForTimeOut(&xTimeOut, &xTicksToWait) == pdFALSE);
-
-	return sentLen;
+	vTaskSetTimeOutState(&xTimeOut); 
+        /* Record the time at which this function was entered. */
+        
+        return len;
 }
 
 
@@ -175,6 +130,7 @@ void NetworkInit(Network* n)
 
 int NetworkConnect(Network* n, char* addr, int port)
 {
+
 	return 0;
 }
 

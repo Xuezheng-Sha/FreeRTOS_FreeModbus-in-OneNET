@@ -26,10 +26,6 @@ static TaskHandle_t xHandleTaskStart = NULL;
   */
 int main(void)
 {         
-//          MQTTClient client;
-//          MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
-//          MQTTClient_message pubmsg = MQTTClient_message_initializer;
-//          MQTTClient_deliveryToken token;
           Delay_Init();	//Timer3初始化
           IIC_Init();	//I2C总线初始化
           ADXL362_Init();    //三轴加速计初始化
@@ -38,6 +34,7 @@ int main(void)
           LED_Init();
           Beep_Init();
           LIGHT_Init();//初始化
+          mem_init();
          //__set_PRIMASK(1); 
         //初始化 RTU模式 从机地址为1 USART1 9600 无校验
           eMBInit(MB_RTU, 0x01, 0x01, 9600, MB_PAR_NONE);
